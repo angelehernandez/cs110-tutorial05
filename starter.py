@@ -62,29 +62,25 @@ def draw_row(canvas:Canvas, row:tuple, top_left:tuple, pixel:int=25):
 
 
 
-# first 6 rows of frank
+# frank
 y = 50
 for row in frank:
-    # draw each row at the specified (x, y) position:
     draw_row(canvas, row, (50, y), pixel=20)
-    # ...and don't forget to shift the y-value down by the proper
-    #  amount so that the next row won't draw on top of the first one:
     y += 20
 
-# first 6 rows of the heart
-draw_row(canvas, heart[0], (250, 250), pixel=10)
-draw_row(canvas, heart[1], (250, 260), pixel=10)
-draw_row(canvas, heart[2], (250, 270), pixel=10)
-draw_row(canvas, heart[3], (250, 280), pixel=10)
-draw_row(canvas, heart[4], (250, 290), pixel=10)
-draw_row(canvas, heart[5], (250, 300), pixel=10)
+# heart
 y = 250
 for row in heart:
-    # draw each row at the specified (x, y) position:
     draw_row(canvas, row, (250, y), pixel=20)
-    # ...and don't forget to shift the y-value down by the proper
-    #  amount so that the next row won't draw on top of the first one:
     y += 20
+
+# create function:
+def draw_pixel_art(canvas:Canvas, top_left:tuple, grid:tuple, pixel:int=10):
+    x = top_left[0]
+    y = top_left[1]
+    for row in grid:
+        draw_row(canvas, row, (x, y), pixel=pixel)
+        y += pixel
 
 ########################## YOUR CODE ABOVE THIS LINE ############################## 
 canvas.mainloop()
