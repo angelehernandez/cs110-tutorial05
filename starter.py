@@ -38,12 +38,25 @@ frank = (
     (0, 0, 2, 2, 0, 2, 2, 0, 0)
 )
 
+shield = (
+    (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+    (0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0),
+    (0, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 0),
+    (0, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 0),
+    (0, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 0),
+    (0, 0, 1, 2, 2, 2, 2, 2, 2, 2, 1, 0, 0),
+    (0, 0, 0, 1, 2, 2, 2, 2, 2, 1, 0, 0, 0),
+    (0, 0, 0, 0, 1, 2, 2, 2, 1, 0, 0, 0, 0),
+    (0, 0, 0, 0, 0, 1, 2, 1, 0, 0, 0, 0, 0),
+    (0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0),
+    (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+)
 
 
 # helper function that draws a grid.
 make_grid(canvas, 600, 600)
 
-def draw_row(canvas:Canvas, row:tuple, top_left:tuple, colors:tuple=('pink', 'black', 'blue'), pixel:int=25):
+def draw_row(canvas:Canvas, row:tuple, top_left:tuple, colors, pixel:int=25):
     x = top_left[0]
     y = top_left[1]
     for cell in row:
@@ -62,26 +75,29 @@ def draw_row(canvas:Canvas, row:tuple, top_left:tuple, colors:tuple=('pink', 'bl
 
 
 
-# frank
-y = 50
-for row in frank:
-    draw_row(canvas, row, (50, y), pixel=20)
-    y += 20
+# # frank
+# y = 50
+# for row in frank:
+#     draw_row(canvas, row, (50, y), pixel=20)
+#     y += 20
 
-# heart
-y = 250
-for row in heart:
-    draw_row(canvas, row, (250, y), pixel=20)
-    y += 20
+# # heart
+# y = 250
+# for row in heart:
+#     draw_row(canvas, row, (250, y), pixel=20)
+#     y += 20
 
 # create function:
-def draw_pixel_art(canvas:Canvas, top_left:tuple, grid:tuple, colors:tuple=('pink', 'black', 'blue'), pixel:int=10):
+def draw_pixel_art(canvas:Canvas, top_left:tuple, grid:tuple, colors:tuple, pixel:int=10):
     x = top_left[0]
     y = top_left[1]
     for row in grid:
         draw_row(canvas, row, (x, y), colors, pixel=pixel)
         y += pixel
-draw_pixel_art(canvas, (350, 115), heart, colors=('black', 'black', 'black'), pixel=5)
+draw_pixel_art(canvas, (350, 115), heart, colors=('red', 'black', 'pink'), pixel=5)
+
+# my drawing
+draw_pixel_art(canvas, (55, 415), shield, colors=('black', 'grey', 'black'), pixel=6)
 
 ########################## YOUR CODE ABOVE THIS LINE ############################## 
 canvas.mainloop()
