@@ -63,13 +63,13 @@ def draw_row(canvas:Canvas, row:tuple, top_left:tuple, pixel:int=25):
 
 
 # first 6 rows of frank
-draw_row(canvas, frank[0], (10, 50), pixel=20)
-draw_row(canvas, frank[1], (10, 70), pixel=20)
-draw_row(canvas, frank[2], (10, 90), pixel=20)
-draw_row(canvas, frank[3], (10, 110), pixel=20)
-draw_row(canvas, frank[4], (10, 130), pixel=20)
-draw_row(canvas, frank[5], (10, 150), pixel=20)
-
+y = 50
+for row in frank:
+    # draw each row at the specified (x, y) position:
+    draw_row(canvas, row, (50, y), pixel=20)
+    # ...and don't forget to shift the y-value down by the proper
+    #  amount so that the next row won't draw on top of the first one:
+    y += 20
 
 # first 6 rows of the heart
 draw_row(canvas, heart[0], (250, 250), pixel=10)
@@ -78,6 +78,13 @@ draw_row(canvas, heart[2], (250, 270), pixel=10)
 draw_row(canvas, heart[3], (250, 280), pixel=10)
 draw_row(canvas, heart[4], (250, 290), pixel=10)
 draw_row(canvas, heart[5], (250, 300), pixel=10)
+y = 250
+for row in heart:
+    # draw each row at the specified (x, y) position:
+    draw_row(canvas, row, (250, y), pixel=20)
+    # ...and don't forget to shift the y-value down by the proper
+    #  amount so that the next row won't draw on top of the first one:
+    y += 20
 
 ########################## YOUR CODE ABOVE THIS LINE ############################## 
 canvas.mainloop()
